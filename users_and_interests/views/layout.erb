@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  </head>
+  <style>
+    body {
+      margin-left : 20px;
+    }
+    
+    h2 {
+      color: purple;
+    }
+    
+    footer {
+      color: purple;
+    }
+  </style>
+  
+  <body>
+    
+    <header><h2>Launch School friends and their interests</h2></header>
+      <%= yield %>
+    
+  </body>
+  
+  <footer>
+    
+    <% values = @information.values %>
+    <% all_values = 0 %>
+    <% values.each do |hash| %>
+      <% hash.each do |k, v| %>
+        <% all_values += v.count %>
+      <% end %>
+    <% end %>
+    
+    <p>There are a total of <%= @information.keys.count %> friends and <%= all_values %> interests</p>
+
+  </footer>
+</html>

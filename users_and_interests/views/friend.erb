@@ -1,0 +1,35 @@
+<style>
+
+  h4 {
+    color: green;
+  }
+  
+  li {
+    color: orange;
+  }
+  
+</style>
+
+<h4><%= @friend %></h4>
+
+<ul>
+  <% @interests.each do |activity| %>
+    <li>
+      <%= activity %>
+    </li>
+  <% end %>
+</ul>
+
+<h4>Other friends</h4>
+
+<ul>
+    <% all_friends = @information.keys %>
+    <% all_friends.each do |friend| %>
+    <% next if friend == @friend %>
+    <li>
+      <a href="/<%= friend %>"><%= friend %></a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/">Take me back to all my friends</a>

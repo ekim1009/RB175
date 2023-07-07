@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cookie Recipes</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <header>
+      <h1>Choose your cookie!</h1>
+    </header>
+
+    <ul>
+       <% @files.each do |file| %>
+        <% file_name = File.basename(file) %>
+        <li><a href="/<%= file_name %>"><%= file_name %></a></li>
+      <% end %>
+    </ul>
+
+    <% if params[:sort] == "descending" %>
+      <a href="/">Sort in Ascending Order</a>
+    <% else %>
+      <a href="/?sort=descending">Sort in Descending Order</a>
+    <% end %>
+  </body>
+</html>
